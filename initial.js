@@ -25,7 +25,13 @@
             settings = $.extend(settings, e.data());
 
             // making the text object
-            var c = settings.name.substr(0, settings.charCount).toUpperCase();
+			var names = settings.name.split(" ");
+			var c = "";
+			if(names.length>1){
+				c = names[0].substr(0, 1).toUpperCase() + names[1].substr(0, 1).toUpperCase();
+			}else{
+				c = settings.name.substr(0, settings.charCount).toUpperCase();
+			}
             var cobj = $('<text text-anchor="middle"></text>').attr({
                 'y': '50%',
                 'x': '50%',
